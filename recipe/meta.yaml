@@ -10,22 +10,24 @@ source:
   sha256: a48f88e2904a056e1ef6d4728cfb2f36aa3213ce194fb09fc04259b9007165f0
 
 build:
-  noarch: python
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >=3.8.0,<4.0.0
+    - python
     - pydantic >=1.8
 
 test:
   imports:
     - openapi_pydantic
+    - openapi_pydantic.v3.v3_1
+    - openapi_pydantic.v3.v3_0
   commands:
     - pip check
   requires:
@@ -34,9 +36,13 @@ test:
 about:
   home: https://github.com/mike-oakley/openapi-pydantic
   summary: Pydantic OpenAPI schema implementation
+  description: OpenAPI schema implemented in Pydantic. Both Pydantic 1.8+ and 2.x are supported.
   license: MIT
+  license_family: MIT
   license_file:
     - LICENSE
+  doc_url: https://github.com/mike-oakley/openapi-pydantic
+  dev_url: https://github.com/mike-oakley/openapi-pydantic
 
 extra:
   recipe-maintainers:
