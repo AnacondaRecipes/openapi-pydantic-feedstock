@@ -1,0 +1,2 @@
+extra_labels_for_os:
+  osx-64: [osx_amd64_1]
