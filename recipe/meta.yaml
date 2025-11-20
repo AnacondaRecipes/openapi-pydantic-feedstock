@@ -38,11 +38,11 @@ test:
 about:
   home: https://github.com/mike-oakley/openapi-pydantic
   summary: Pydantic OpenAPI schema implementation
-  description: OpenAPI schema implemented in Pydantic. Both Pydantic 1.8+ and 2.x are supported.
+  description: |
+    OpenAPI schema implemented in Pydantic. Both Pydantic 1.8+ and 2.x are supported.
   license: MIT
   license_family: MIT
-  license_file:
-    - LICENSE
+  license_file: LICENSE
   doc_url: https://github.com/mike-oakley/openapi-pydantic
   dev_url: https://github.com/mike-oakley/openapi-pydantic
 
