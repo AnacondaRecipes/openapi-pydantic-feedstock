@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openapi_pydantic-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace("-", "_") }}-{{ version }}.tar.gz
   sha256: ff6835af6bde7a459fb93eb93bb92b8749b754fc6e51b2f1590a19dc3005ee0d
 
 build:
@@ -26,10 +26,12 @@ requirements:
 test:
   imports:
     - openapi_pydantic
+    - openapi_pydantic.compat
     - openapi_pydantic.v3.v3_1
     - openapi_pydantic.v3.v3_0
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
   requires:
     - pip
 
